@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthem Jewels — Rare. Refined. Eternal.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-logo">Anthem <span>Jewels</span></div>
+  <div class="preloader-bar"></div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home');return false;">Anthem <span>Jewels</span></div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage('home');closeMenu();return false;" id="nav-home" class="active-link">Home</a></li>
+    <li><a href="#" onclick="showPage('about');closeMenu();return false;" id="nav-about">About</a></li>
+    <li><a href="#" onclick="showPage('gallery');closeMenu();return false;" id="nav-gallery">Gallery</a></li>
+    <li><a href="#" onclick="showPage('blog');closeMenu();return false;" id="nav-blog">Blog</a></li>
+    <li><a href="#" onclick="showPage('contact');closeMenu();return false;" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div class="page active" id="home">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <canvas id="heroCanvas"></canvas>
+
+    <!-- Animated Diamond -->
+    <div class="hero-diamond">
+      <div class="shine-ring"></div>
+      <div class="shine-ring"></div>
+      <div class="shine-ring"></div>
+      <svg class="diamond-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E8C97A;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#C9A84C;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#8a6f2e;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="dg2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5"/>
+            <stop offset="100%" style="stop-color:#C9A84C;stop-opacity:0.2"/>
+          </linearGradient>
+        </defs>
+        <!-- Main diamond shape -->
+        <polygon points="200,30 340,150 200,380 60,150" fill="url(#dg1)" opacity="0.9"/>
+        <!-- Inner facets -->
+        <polygon points="200,30 340,150 200,200" fill="url(#dg2)"/>
+        <polygon points="200,30 60,150 200,200" fill="rgba(201,168,76,0.3)"/>
+        <polygon points="340,150 200,380 200,200" fill="rgba(0,0,0,0.25)"/>
+        <polygon points="60,150 200,380 200,200" fill="rgba(201,168,76,0.15)"/>
+        <!-- Sparkle lines -->
+        <line x1="200" y1="30" x2="200" y2="200" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+        <line x1="340" y1="150" x2="200" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+        <line x1="60" y1="150" x2="200" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+        <!-- Highlight -->
+        <polygon points="200,30 260,100 200,85" fill="rgba(255,255,255,0.6)"/>
+        <!-- Sparkle dots -->
+        <circle cx="200" cy="28" r="3" fill="#fff" opacity="0.9"/>
+        <circle cx="342" cy="148" r="2" fill="#E8C97A" opacity="0.8"/>
+        <circle cx="58" cy="152" r="2" fill="#E8C97A" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Est. 2010 · Premium Diamond House</div>
+      <h1 class="hero-title">
+        Where Every<br>
+        Stone Tells an<br>
+        <em>Eternal Story</em>
+      </h1>
+      <p class="hero-desc">
+        We source the world's finest diamonds — each one a masterpiece of nature, 
+        certified and curated for those who seek nothing less than perfection.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-gold" onclick="showPage('gallery');return false;">Explore Collection</button>
+        <button class="btn-outline" onclick="showPage('contact');return false;">Private Inquiry</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">2K+</div>
+          <div class="stat-label">Diamonds Sold</div>
+        </div>
+        <div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Excellence</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Certified Quality</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">Round Brilliant</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Princess Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Emerald Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Oval Shape</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Pear Shape</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Cushion Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Marquise Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Radiant Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Heart Shape</span><span class="marquee-dot">◆</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Round Brilliant</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Princess Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Emerald Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Oval Shape</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Pear Shape</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Cushion Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Marquise Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Radiant Cut</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Heart Shape</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-num">01</div>
+      <div class="feature-icon">💎</div>
+      <div class="feature-title">GIA Certified</div>
+      <p class="feature-text">Every diamond we offer comes with a GIA certification, ensuring authenticity and grading transparency across the 4Cs — cut, color, clarity, and carat weight.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">02</div>
+      <div class="feature-icon">✦</div>
+      <div class="feature-title">Ethically Sourced</div>
+      <p class="feature-text">We are fully compliant with the Kimberley Process and only source conflict-free diamonds from certified mines across trusted regions worldwide.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">03</div>
+      <div class="feature-icon">◈</div>
+      <div class="feature-title">Bespoke Service</div>
+      <p class="feature-text">Our diamond advisors provide one-on-one consultations, whether you're seeking an engagement stone, an investment piece, or a rare collector's gem.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Anthem  <span>Diamonds</span></div>
+        <p class="footer-desc">A house of exceptional diamonds, dedicated to sourcing and curating the finest natural stones for discerning collectors, jewellers, and lovers.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home');return false;">Home</a></li>
+          <li><a onclick="showPage('about');return false;">About Us</a></li>
+          <li><a onclick="showPage('gallery');return false;">Gallery</a></li>
+          <li><a onclick="showPage('blog');return false;">Blog</a></li>
+          <li><a onclick="showPage('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a>📍 Surat, Gujarat, India</a></li>
+          <li><a>📱 Instagram DM Available</a></li>
+          <li><a>📘 Facebook Page Active</a></li>
+          <li><a>✉ <span class="__cf_email__"><span class="__cf_email__" data-cfemail="7c1d120814191116190b19100f15123c1b111d1510521f1311">[email&#160;protected]</span></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Anthem Jewels. All rights reserved.</div>
+      <div class="footer-socials">
+        <a class="social-btn" title="Instagram">📷</a>
+        <a class="social-btn" title="Facebook">📘</a>
+        <a class="social-btn" title="WhatsApp">💬</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<div class="page" id="about">
+
+  <div class="about-hero">
+    <div class="about-hero-bg"></div>
+    <div>
+      <div class="about-hero-tag">Our Story</div>
+      <h1 class="about-hero-title">
+        Crafting <em>Legacy</em><br>
+        One Diamond at a Time
+      </h1>
+    </div>
+  </div>
+
+  <div class="about-body">
+    <div class="about-text">
+      <h2>A Decade of Diamond Excellence</h2>
+      <p>Founded with a singular passion for the world's most precious stones, Anthem Jewels has spent over fourteen years building a reputation for integrity, expertise, and unmatched quality in the global diamond market.</p>
+      <div class="about-divider"></div>
+      <p>We work directly with certified mining operations and established dealers across Belgium, South Africa, and India — eliminating middlemen and ensuring our clients receive the finest stones at transparent, fair pricing.</p>
+      <p>Every diamond in our collection has been hand-selected by our expert gemologists, graded to GIA or IGI standards, and verified to be ethically sourced and conflict-free.</p>
+    </div>
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">💎</div>
+            <div class="value-title">Authenticity</div>
+            <p class="value-text">Every stone is certified and verified before it reaches our clients.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🌿</div>
+            <div class="value-title">Ethics</div>
+            <p class="value-text">Conflict-free sourcing in full compliance with global standards.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🔍</div>
+            <div class="value-title">Precision</div>
+            <p class="value-text">Expert grading and analysis on every carat we handle.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🤝</div>
+            <div class="value-title">Trust</div>
+            <p class="value-text">Long-term relationships built on transparency and honesty.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM SECTION -->
+   <!-- <div class="team-section">
+    <div class="team-section-header">
+      <div class="section-label">The People</div>
+      <h2 class="team-section-title">Experts Behind<br>Every <em>Gemstone</em></h2>
+      <p class="team-section-desc">Our team of certified gemologists and diamond specialists bring decades of combined expertise — sourcing, grading, and delivering the world's finest stones.</p>
+    </div>
+    <div class="team-grid-new">
+
+      <div class="team-card-new">
+        <div class="team-card-top">
+          <div class="team-avatar-new">R</div>
+          <div class="team-diamond-accent">◆</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name-new">Dev kahodariya</div>
+          <div class="team-role-new">Founder & Head Gemologist</div>
+          <div class="team-divider"></div>
+          <p class="team-bio">GIA certified with 18 years of experience sourcing D-Flawless stones from Antwerp, Mumbai and beyond.</p>
+        </div>
+        <div class="team-card-footer">
+          <span class="team-tag">GIA Certified</span>
+          <span class="team-tag">18 Yrs Exp</span>
+        </div>
+      </div>
+
+      <div class="team-card-new featured-team">
+        <div class="team-card-top">
+          <div class="team-avatar-new">P</div>
+          <div class="team-diamond-accent">◆</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name-new">Rudra kahodariya</div>
+          <div class="team-role-new">Diamond Sourcing Expert</div>
+          <div class="team-divider"></div>
+          <p class="team-bio">Specialist in rare fancy colored diamonds with direct connections to top mining operations across South Africa and Australia.</p>
+        </div>
+        <div class="team-card-footer">
+          <span class="team-tag">Fancy Colors</span>
+          <span class="team-tag">Rare Stones</span>
+        </div>
+      </div>
+
+      <div class="team-card-new">
+        <div class="team-card-top">
+          <div class="team-avatar-new">A</div>
+          <div class="team-diamond-accent">◆</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name-new">Haim guna</div>
+          <div class="team-role-new">Client Relations Director</div>
+          <div class="team-divider"></div>
+          <p class="team-bio">Fluent in 5 languages, Arjun ensures every client — from Surat to Singapore — receives a truly personal diamond journey.</p>
+        </div>
+        <div class="team-card-footer">
+          <span class="team-tag">5 Languages</span>
+          <span class="team-tag">Private Advisory</span>
+        </div>
+      </div>
+
+    </div>
+  </div>  -->
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Anthem  <span>Jewels</span></div>
+        <p class="footer-desc">A house of exceptional diamonds, dedicated to sourcing and curating the finest natural stones.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home');return false;">Home</a></li>
+          <li><a onclick="showPage('about');return false;">About Us</a></li>
+          <li><a onclick="showPage('gallery');return false;">Gallery</a></li>
+          <li><a onclick="showPage('blog');return false;">Blog</a></li>
+          <li><a onclick="showPage('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a>📍 Surat, Gujarat, India</a></li>
+          <li><a>📱 Instagram DM Available</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Anthem Jewels. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div class="page" id="contact">
+  <div class="contact-page">
+    <div class="contact-left">
+      <div class="section-label">Reach Out</div>
+      <h1 class="contact-title">Let's Begin Your <em>Diamond Journey</em></h1>
+      <p class="contact-desc">Whether you're looking for an engagement diamond, an investment stone, or simply have a question — our team is here to help. Expect a personal response within 24 hours.</p>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div>
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-value">Surat Diamond Bourse, Surat, Gujarat, India</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📱</div>
+        <div>
+          <div class="contact-info-label">Social</div>
+          <div class="contact-info-value">Instagram & Facebook DM: @anthem_jewels_</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉</div>
+        <div>
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9afbf4eef2fff7f0ffedfff6e9f3f4dafdf7fbf3f6b4f9f5f7">[email&#160;protected]</a></div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">🕐</div>
+        <div>
+          <div class="contact-info-label">Hours</div>
+          <div class="contact-info-value">Mon – Sat · 10:00 AM – 7:00 PM IST</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="section-label">Private Inquiry</div>
+      <div style="height:30px"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input class="form-input" type="text" placeholder="Your name" id="fname">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input class="form-input" type="text" placeholder="Last name" id="lname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="your@email.com" id="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Inquiry Type</label>
+        <select class="form-select" id="inquiry-type">
+          <option value="">Select inquiry type</option>
+          <option>Engagement Diamond</option>
+          <option>Investment Stone</option>
+          <option>Wholesale Inquiry</option>
+          <option>Custom Order</option>
+          <option>General Question</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Budget Range (USD)</label>
+        <select class="form-select" id="budget">
+          <option value="">Select budget range</option>
+          <option>$500 – $2,000</option>
+          <option>$2,000 – $10,000</option>
+          <option>$10,000 – $50,000</option>
+          <option>$50,000+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell us what you're looking for..." id="message"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitForm()">Send Inquiry ◆</button>
+      <div class="form-success" id="form-success">
+        ◆ Thank you. We'll be in touch within 24 hours.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOG ==================== -->
+<div class="page" id="blog">
+
+  <div class="blog-hero">
+    <div class="blog-hero-content">
+      <div class="section-label">Knowledge & Craft</div>
+      <h1 class="blog-hero-title">The <em>Diamond</em><br>Journal</h1>
+    </div>
+  </div>
+
+  <div class="blog-grid">
+    <div class="blog-card featured">
+      <div class="blog-cat">Education</div>
+      <h2 class="blog-title">Understanding the 4Cs: The Complete Guide to Diamond Quality</h2>
+      <p class="blog-excerpt">Cut, Color, Clarity, and Carat — these four criteria define a diamond's beauty and value. But what do each of these mean in practice, and how do they interact to create the perfect stone? Our expert gemologists break it all down in this comprehensive guide to help you make the most informed decision when purchasing a diamond.</p>
+      <div class="blog-meta">
+        <span>By Rahul Mehta</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>December 2024</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>8 min read</span>
+      </div>
+      <div class="blog-read-more">Read Article →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-cat">Investment</div>
+      <h2 class="blog-title">Are Diamonds a Good Investment in 2024?</h2>
+      <p class="blog-excerpt">As traditional asset classes face volatility, many high-net-worth individuals are turning to rare diamonds as alternative stores of value.</p>
+      <div class="blog-meta">
+        <span>Nov 2024</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>5 min</span>
+      </div>
+      <div class="blog-read-more">Read →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-cat">Trends</div>
+      <h2 class="blog-title">Lab-Grown vs Natural Diamonds: What's the Difference?</h2>
+      <p class="blog-excerpt">The rise of lab-grown diamonds has changed the market. Here's everything you need to know before making a choice.</p>
+      <div class="blog-meta">
+        <span>Oct 2024</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>4 min</span>
+      </div>
+      <div class="blog-read-more">Read →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-cat">Guide</div>
+      <h2 class="blog-title">How to Choose the Perfect Engagement Diamond</h2>
+      <p class="blog-excerpt">From shape to setting, our advisors walk you through every decision with confidence and clarity.</p>
+      <div class="blog-meta">
+        <span>Sep 2024</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>6 min</span>
+      </div>
+      <div class="blog-read-more">Read →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-cat">Industry</div>
+      <h2 class="blog-title">Surat: The Diamond Capital of the World</h2>
+      <p class="blog-excerpt">Over 90% of the world's diamonds are cut and polished in Surat. Discover how this city became the global heart of the diamond trade.</p>
+      <div class="blog-meta">
+        <span>Aug 2024</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>5 min</span>
+      </div>
+      <div class="blog-read-more">Read →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-cat">Care</div>
+      <h2 class="blog-title">How to Clean and Care for Your Diamond Jewellery</h2>
+      <p class="blog-excerpt">Simple, expert-backed tips to keep your precious stones sparkling for generations to come.</p>
+      <div class="blog-meta">
+        <span>Jul 2024</span>
+        <span class="blog-meta-dot">◆</span>
+        <span>3 min</span>
+      </div>
+      <div class="blog-read-more">Read →</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"> Anthem  <span>Diamonds</span></div>
+        <p class="footer-desc">A house of exceptional diamonds, dedicated to sourcing the finest natural stones.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home');return false;">Home</a></li>
+          <li><a onclick="showPage('about');return false;">About</a></li>
+          <li><a onclick="showPage('gallery');return false;">Gallery</a></li>
+          <li><a onclick="showPage('blog');return false;">Blog</a></li>
+          <li><a onclick="showPage('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a>📍 Surat, Gujarat, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Anthem Jewels. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== GALLERY ==================== -->
+<div class="page" id="gallery">
+
+  <div class="gallery-hero">
+    <div>
+      <div class="section-label">The Collection</div>
+      <h1 class="gallery-hero-title">Every Diamond,<br>a <em>Masterpiece</em></h1>
+    </div>
+  </div>
+
+  <div class="gallery-filter">
+    <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+    <button class="filter-btn" onclick="filterGallery('round', this)">Round</button>
+    <button class="filter-btn" onclick="filterGallery('fancy', this)">Fancy Cuts</button>
+    <button class="filter-btn" onclick="filterGallery('colored', this)">Colored</button>
+    <button class="filter-btn" onclick="filterGallery('rare', this)">Rare</button>
+  </div>
+
+  <div class="gallery-masonry" id="galleryGrid">
+    <!-- Gallery items will be inserted here -->
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+    <div class="lightbox-content">
+      <div id="lightbox-img" style="display:flex;align-items:center;justify-content:center;min-height:240px;"></div>
+      <div class="lightbox-title" id="lightbox-title">Diamond Name</div>
+      <div class="lightbox-sub" id="lightbox-sub">Category · Details</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Anthem  <span>Diamonds</span></div>
+        <p class="footer-desc">A house of exceptional diamonds.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home');return false;">Home</a></li>
+          <li><a onclick="showPage('about');return false;">About</a></li>
+          <li><a onclick="showPage('gallery');return false;">Gallery</a></li>
+          <li><a onclick="showPage('blog');return false;">Blog</a></li>
+          <li><a onclick="showPage('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a>📍 Surat, Gujarat, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Anthem Jewels. All rights reserved.</div>
+    </div>
+  </footer>
+
+</div><!-- end #gallery page -->
+
+<!-- WhatsApp Float -->
+<a class="whatsapp-float" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
