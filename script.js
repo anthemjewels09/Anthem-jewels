@@ -240,9 +240,9 @@ if (scrollTopBtn) {
 // ===== GALLERY DATA — 50 UNIQUE DIAMONDS =====
 const diamonds = [
     // ROUND
-    { id: 1,  name: 'Celestial Round',       cat: 'round',   sub: 'Round Brilliant · 2.10 ct · D/IF',       img: './images/Brillian cut round.png' },
-    { id: 2,  name: 'Classic Solitaire',      cat: 'round',   sub: 'Round Brilliant · 1.50 ct · E/VS2',      img: './images/loose round brilliant.png' },
-    { id: 3,  name: 'Arctic Light',           cat: 'round',   sub: 'Round Brilliant · 3.00 ct · D/VVS1',     img: './images/arctic light.png' },
+    { id: 1,  name: 'Celestial Round',       cat: 'round',   sub: 'Round Brilliant · 2.10 ct · D/IF',       img: '' },
+    { id: 2,  name: 'Classic Solitaire',      cat: 'round',   sub: 'Round Brilliant · 1.50 ct · E/VS2',      img: '' },
+    { id: 3,  name: 'Arctic Light',           cat: 'round',   sub: 'Round Brilliant · 3.00 ct · D/VVS1',     img: '' },
     { id: 4,  name: 'Solar Blaze',            cat: 'round',   sub: 'Round Brilliant · 1.75 ct · F/VS1',      img: '' },
     { id: 5,  name: 'Polar Star',             cat: 'round',   sub: 'Round Brilliant · 2.40 ct · E/VVS2',     img: '' },
     { id: 6,  name: 'Ivory Halo',             cat: 'round',   sub: 'Round Brilliant · 1.20 ct · G/VS1',      img: '' },
@@ -258,9 +258,9 @@ const diamonds = [
     { id: 14, name: 'Emerald Isle',           cat: 'fancy',   sub: 'Emerald Cut · 3.00 ct · G/VVS1',         img: '' },
     { id: 15, name: 'Marquise Mirage',        cat: 'fancy',   sub: 'Marquise Cut · 2.20 ct · E/VS2',         img: '' },
     { id: 16, name: 'Radiant Dawn',           cat: 'fancy',   sub: 'Radiant Cut · 2.70 ct · D/VVS2',         img: '' },
-    { id: 17, name: 'Cushion Cloud',          cat: 'fancy',   sub: 'Cushion Cut · 3.10 ct · F/VS1',          img: './images/Cushion Cloud Cushion Cut.png' },
-    { id: 18, name: 'Asscher Royale',         cat: 'fancy',   sub: 'Asscher Cut · 1.90 ct · E/VVS1',         img: './images/asscher-royale-diamond.png' },
-    { id: 19, name: 'Trillion Dream',         cat: 'fancy',   sub: 'Trillion Cut · 1.40 ct · G/VS2',         img: './images/triangle.png' },
+    { id: 17, name: 'Cushion Cloud',          cat: 'fancy',   sub: 'Cushion Cut · 3.10 ct · F/VS1',          img: '' },
+    { id: 18, name: 'Asscher Royale',         cat: 'fancy',   sub: 'Asscher Cut · 1.90 ct · E/VVS1',         img: '' },
+    { id: 19, name: 'Trillion Dream',         cat: 'fancy',   sub: 'Trillion Cut · 1.40 ct · G/VS2',         img: '' },
     { id: 20, name: 'Baguette Grace',         cat: 'fancy',   sub: 'Baguette Cut · 0.80 ct · F/VS1',         img: '' },
     { id: 21, name: 'Teardrop Serenity',      cat: 'fancy',   sub: 'Pear Shape · 2.10 ct · D/IF',            img: '' },
     { id: 22, name: 'Princess Aurora',        cat: 'fancy',   sub: 'Princess Cut · 2.60 ct · E/VVS2',        img: '' },
@@ -277,7 +277,7 @@ const diamonds = [
     { id: 31, name: 'Lavender Mist',          cat: 'colored', sub: 'Fancy Purple · 0.55 ct · Intense',        img: '' },
     { id: 32, name: 'Cognac Reserve',         cat: 'colored', sub: 'Fancy Brown · 3.10 ct · Deep',            img: '' },
     { id: 33, name: 'Goldenrod',              cat: 'colored', sub: 'Fancy Yellow · 1.80 ct · Vivid',          img: '' },
-    { id: 34, name: 'Rose Lumiere',           cat: 'colored', sub: 'Fancy Pink · 1.40 ct · Vivid',            img: './images/rose-lumiere.png' },
+    { id: 34, name: 'Rose Lumiere',           cat: 'colored', sub: 'Fancy Pink · 1.40 ct · Vivid',            img: '' },
 
     // RARE
     { id: 35, name: 'The Koh-i-Noor Reserve', cat: 'rare',   sub: 'Cushion · 5.20 ct · D/Flawless',          img: './images/kohinoor reserve.png' },
