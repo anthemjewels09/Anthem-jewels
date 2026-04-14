@@ -280,8 +280,8 @@ const diamonds = [
     { id: 34, name: 'Rose Lumiere',           cat: 'colored', sub: 'Fancy Pink · 1.40 ct · Vivid',            img: '' },
 
     // RARE
-    { id: 35, name: 'The Koh-i-Noor Reserve', cat: 'rare',   sub: 'Cushion · 5.20 ct · D/Flawless',          img: './images/kohinoor reserve.png' },
-    { id: 36, name: 'Eternal Marquise',        cat: 'rare',   sub: 'Marquise Cut · 3.10 ct · F/VVS2',         img: './images/photorealistic.png' },
+    { id: 35, name: 'The Koh-i-Noor Reserve', cat: 'rare',   sub: 'Cushion · 5.20 ct · D/Flawless',          img: '' },
+    { id: 36, name: 'Eternal Marquise',        cat: 'rare',   sub: 'Marquise Cut · 3.10 ct · F/VVS2',         img: '' },
     { id: 37, name: 'Heart of Eternity',       cat: 'rare',   sub: 'Heart Shape · 1.00 ct · E/VS2',           img: '' },
     { id: 38, name: 'The Regent',              cat: 'rare',   sub: 'Cushion · 8.00 ct · D/IF',                img: '' },
     { id: 39, name: 'Golconda Legacy',         cat: 'rare',   sub: 'Round Brilliant · 6.50 ct · D/FL',        img: '' },
