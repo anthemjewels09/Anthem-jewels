@@ -4,6 +4,16 @@
    split-text reveal, smooth page transitions, parallax layers
    ============================================================ */
 
+// ===== INQUIRY CHIP TOGGLE =====
+function toggleChip(el) {
+    el.classList.toggle('active');
+    // Update hidden input with all active chips
+    const chips = document.querySelectorAll('.inquiry-chip.active');
+    const values = Array.from(chips).map(c => c.dataset.val).join(', ');
+    const hidden = document.getElementById('inquiry-type');
+    if (hidden) hidden.value = values || '';
+}
+
 // ===== MOBILE NAV =====
 function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
