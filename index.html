@@ -9,6 +9,14 @@
 </head>
 <body>
 
+<!-- Page Wipe Transition -->
+<div id="pageWipe">
+  <div class="wipe-bar"></div>
+</div>
+
+<!-- Cursor Sparkle Trail Container -->
+<div id="cursorTrail"></div>
+
 <!-- Preloader -->
 <div id="preloader">
   <div class="preloader-diamond"></div>
@@ -23,9 +31,14 @@
 <!-- Navigation -->
 <nav>
   <div class="nav-logo" onclick="showPage('home');return false;">Anthem <span>Jewels</span></div>
-  <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()" aria-label="Menu">
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme">
+      <span class="theme-toggle-icon">◈</span>
+    </button>
+    <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
+  </div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#" onclick="showPage('home');closeMenu();return false;" id="nav-home" class="active-link">Home</a></li>
     <li><a href="#" onclick="showPage('about');closeMenu();return false;" id="nav-about">About</a></li>
@@ -40,43 +53,23 @@
 
   <section class="hero">
     <div class="hero-bg"></div>
+
+    <!-- Video Background -->
+    <div class="hero-video-wrap" id="heroVideoWrap">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-shiny-diamond-rotating-on-a-black-background-32987-large.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
     <canvas id="heroCanvas"></canvas>
 
-    <!-- Animated Diamond -->
+    <!-- 3D Diamond -->
     <div class="hero-diamond">
       <div class="shine-ring"></div>
       <div class="shine-ring"></div>
       <div class="shine-ring"></div>
-      <svg class="diamond-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#E8C97A;stop-opacity:1"/>
-            <stop offset="50%" style="stop-color:#C9A84C;stop-opacity:1"/>
-            <stop offset="100%" style="stop-color:#8a6f2e;stop-opacity:1"/>
-          </linearGradient>
-          <linearGradient id="dg2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5"/>
-            <stop offset="100%" style="stop-color:#C9A84C;stop-opacity:0.2"/>
-          </linearGradient>
-        </defs>
-        <!-- Main diamond shape -->
-        <polygon points="200,30 340,150 200,380 60,150" fill="url(#dg1)" opacity="0.9"/>
-        <!-- Inner facets -->
-        <polygon points="200,30 340,150 200,200" fill="url(#dg2)"/>
-        <polygon points="200,30 60,150 200,200" fill="rgba(201,168,76,0.3)"/>
-        <polygon points="340,150 200,380 200,200" fill="rgba(0,0,0,0.25)"/>
-        <polygon points="60,150 200,380 200,200" fill="rgba(201,168,76,0.15)"/>
-        <!-- Sparkle lines -->
-        <line x1="200" y1="30" x2="200" y2="200" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-        <line x1="340" y1="150" x2="200" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
-        <line x1="60" y1="150" x2="200" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
-        <!-- Highlight -->
-        <polygon points="200,30 260,100 200,85" fill="rgba(255,255,255,0.6)"/>
-        <!-- Sparkle dots -->
-        <circle cx="200" cy="28" r="3" fill="#fff" opacity="0.9"/>
-        <circle cx="342" cy="148" r="2" fill="#E8C97A" opacity="0.8"/>
-        <circle cx="58" cy="152" r="2" fill="#E8C97A" opacity="0.6"/>
-      </svg>
+      <canvas id="diamondCanvas3d"></canvas>
     </div>
 
     <div class="hero-content">
@@ -109,6 +102,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Video toggle -->
+    <button class="video-toggle" id="videoToggleBtn" onclick="toggleVideo()">
+      <span class="video-toggle-dot"></span>
+      <span id="videoToggleLabel">Disable Video</span>
+    </button>
+
   </section>
 
   <!-- Marquee -->
@@ -247,8 +247,28 @@
     </div>
   </div>
 
+  <!-- ABOUT COUNTERS -->
+  <div class="about-counters" id="aboutCounters">
+    <div class="about-counter-item">
+      <div class="about-counter-num" data-target="14" data-suffix="+">0</div>
+      <div class="about-counter-label">Years of Excellence</div>
+    </div>
+    <div class="about-counter-item">
+      <div class="about-counter-num" data-target="2000" data-suffix="+">0</div>
+      <div class="about-counter-label">Diamonds Sourced</div>
+    </div>
+    <div class="about-counter-item">
+      <div class="about-counter-num" data-target="98" data-suffix="%">0</div>
+      <div class="about-counter-label">Client Satisfaction</div>
+    </div>
+    <div class="about-counter-item">
+      <div class="about-counter-num" data-target="12" data-suffix="">0</div>
+      <div class="about-counter-label">Countries Served</div>
+    </div>
+  </div>
+
   <!-- TEAM SECTION -->
-   <div class="team-section">
+   <!-- <div class="team-section">
     <div class="team-section-header">
       <div class="section-label">The People</div>
       <h2 class="team-section-title">Experts Behind<br>Every <em>Gemstone</em></h2>
@@ -308,7 +328,7 @@
       </div>
 
     </div>
-  </div> 
+  </div>  -->
 
   <footer>
     <div class="footer-top">
@@ -604,7 +624,7 @@
 </div><!-- end #gallery page -->
 
 <!-- WhatsApp Float -->
-<a class="whatsapp-float" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="WhatsApp">
+<a class="whatsapp-float" href="https://wa.me/918800806032" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
