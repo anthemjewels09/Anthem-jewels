@@ -117,7 +117,7 @@ body::before {
     border-color: rgba(201,168,76,0.25);
 }
 
-@media (hover: none) {
+@media (pointer: coarse), (hover: none) {
     .cursor, .cursor-ring, #ambient-light { display: none !important; }
     body { cursor: auto !important; }
 }
@@ -2473,222 +2473,6 @@ body.theme-navy .theme-toggle { border-color: rgba(100,160,255,0.4); color: #aad
    BATCH 4 — 5 NEW FEATURES CSS
    ============================================================ */
 
-/* ===== 4C CALCULATOR ===== */
-#calculator {
-    min-height: 100vh;
-    background: var(--black);
-}
-
-.calc-hero {
-    padding: 120px 60px 60px;
-    text-align: center;
-    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 65%);
-}
-
-.calc-hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    color: var(--white);
-    margin: 12px 0 20px;
-}
-
-.calc-hero-title em { color: var(--gold-light); font-style: italic; }
-
-.calc-hero-desc {
-    font-size: 0.72rem;
-    color: var(--gray);
-    letter-spacing: 0.08em;
-    font-weight: 300;
-}
-
-.calc-body {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 40px;
-    padding: 40px 60px 100px;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: start;
-}
-
-.calc-controls { display: flex; flex-direction: column; gap: 36px; }
-
-.calc-group { display: flex; flex-direction: column; gap: 14px; }
-
-.calc-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gray);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.calc-val {
-    color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-}
-
-.calc-slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 2px;
-    background: rgba(201,168,76,0.2);
-    outline: none;
-    cursor: pointer;
-    position: relative;
-}
-
-.calc-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--gold);
-    cursor: pointer;
-    border: 2px solid var(--black);
-    box-shadow: 0 0 12px rgba(201,168,76,0.5);
-    transition: transform 0.2s var(--ease-spring), box-shadow 0.2s;
-}
-
-.calc-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.3);
-    box-shadow: 0 0 20px rgba(201,168,76,0.8);
-}
-
-.calc-range-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.52rem;
-    color: rgba(201,168,76,0.35);
-    letter-spacing: 0.1em;
-}
-
-.calc-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.calc-pill {
-    background: none;
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--gray);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.56rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: all 0.25s var(--ease-spring);
-}
-
-.calc-pill:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    transform: translateY(-2px);
-}
-
-.calc-pill.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--black);
-    font-weight: 600;
-}
-
-.calc-result {
-    position: sticky;
-    top: 100px;
-    background: rgba(201,168,76,0.04);
-    border: 1px solid rgba(201,168,76,0.18);
-    padding: 44px 36px;
-    text-align: center;
-}
-
-.calc-result-label {
-    font-size: 0.55rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 20px;
-}
-
-.calc-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.6rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1.1;
-    margin-bottom: 14px;
-    transition: all 0.4s var(--ease-spring);
-}
-
-.calc-result-note {
-    font-size: 0.52rem;
-    color: rgba(201,168,76,0.4);
-    letter-spacing: 0.08em;
-    margin-bottom: 24px;
-    line-height: 1.8;
-}
-
-.calc-result-specs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 28px;
-    text-align: left;
-}
-
-.calc-spec-item span:first-child {
-    display: block;
-    font-size: 0.5rem;
-    color: var(--gray);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-}
-
-.calc-spec-item span:last-child {
-    font-size: 0.72rem;
-    color: var(--off-white);
-    font-weight: 300;
-}
-
-.calc-wa-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 16px 24px;
-    width: 100%;
-    transition: all 0.3s var(--ease-spring);
-}
-
-.calc-wa-btn:hover {
-    background: #20b858;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(37,211,102,0.4);
-}
-
-@media (max-width: 900px) {
-    .calc-body { grid-template-columns: 1fr; padding: 24px; }
-    .calc-result { position: static; }
-    .calc-hero { padding: 100px 24px 40px; }
-}
-
-/* (Compare CSS removed) */
-
 /* ===== LIVE CHAT BUBBLE ===== */
 .live-chat-bubble {
     position: fixed;
@@ -3209,7 +2993,6 @@ body.theme-navy .theme-toggle { border-color: rgba(100,160,255,0.4); color: #aad
 /* ===================== BUG FIX PATCH ===================== */
 
 /* Blog read-more as anchor */
-a
 a.blog-read-more:hover { color: var(--gold-light); letter-spacing: 0.28em; }
 
 /* Working social buttons */
@@ -3275,14 +3058,3 @@ a.blog-read-more:hover { color: var(--gold-light); letter-spacing: 0.28em; }
   border-color: rgba(37,211,102,0.6);
   transform: translateX(6px);
 }
-
-/* ── Compare section embedded inside Calculator ─── */
-
-.compare-section-embed .calc-hero { padding-left: 5%; padding-right: 5%; }
-
-/* ── Nav — 5 links clean spacing ───────────────── */
-@media (min-width: 769px) {
-  .nav-links { gap: 36px; }
-  .nav-links li a { font-size: 0.66rem; letter-spacing: 0.24em; }
-}
-
