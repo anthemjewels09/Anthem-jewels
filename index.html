@@ -54,6 +54,7 @@
     <li><a href="#" onclick="showPage('gallery');closeMenu();return false;" id="nav-gallery">Diamonds</a></li>
     <li><a href="#" onclick="showPage('gemstones');closeMenu();return false;" id="nav-gemstones">Gemstones</a></li>
     <li><a href="#" onclick="showPage('about');closeMenu();return false;" id="nav-about">About</a></li>
+    <li><a href="#" onclick="showPage('calculator');closeMenu();return false;" id="nav-calculator">Calculator</a></li>
     <li><a href="#" onclick="showPage('contact');closeMenu();return false;" id="nav-contact">Contact</a></li>
   </ul>
 </nav>
@@ -864,6 +865,412 @@
     </div>
   </footer>
 </div><!-- end #gemstones -->
+
+<!-- ==================== CALCULATOR ==================== -->
+<div class="page" id="calculator">
+
+  <!-- Page Hero -->
+  <section class="calc-hero">
+    <div class="calc-hero-bg"></div>
+    <div class="calc-hero-content">
+      <div class="section-label" style="text-align:center;margin-bottom:14px">Estimate Instantly</div>
+      <h1 class="calc-hero-title">Price <em>Calculator</em></h1>
+      <p class="calc-hero-desc">Get an indicative price range for natural diamonds, lab grown diamonds, and precious gemstones. Final pricing is confirmed by our team.</p>
+    </div>
+  </section>
+
+  <!-- Tab Switcher -->
+  <div class="calc-tabs-wrap">
+    <div class="calc-tabs" id="calcTabs">
+      <button class="calc-tab active" data-tab="natural" onclick="switchCalcTab('natural')">
+        <span class="calc-tab-icon">◆</span> Natural Diamond
+      </button>
+      <button class="calc-tab" data-tab="lab" onclick="switchCalcTab('lab')">
+        <span class="calc-tab-icon">◇</span> Lab Grown Diamond
+      </button>
+      <button class="calc-tab" data-tab="gem" onclick="switchCalcTab('gem')">
+        <span class="calc-tab-icon">✦</span> Gemstone
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== NATURAL DIAMOND CALCULATOR ===== -->
+  <div class="calc-panel active" id="calc-natural">
+    <div class="calc-grid">
+      <div class="calc-form-col">
+        <div class="calc-section-title">Natural Diamond</div>
+
+        <div class="calc-field">
+          <label class="calc-label">Carat Weight</label>
+          <div class="calc-slider-wrap">
+            <input type="range" class="calc-slider" id="nd-carat" min="0.25" max="10" step="0.05" value="1.00" oninput="updateNDCalc()">
+            <div class="calc-slider-val"><span id="nd-carat-val">1.00</span> ct</div>
+          </div>
+          <div class="calc-slider-labels"><span>0.25 ct</span><span>10 ct</span></div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Shape</label>
+          <div class="calc-chip-group" id="nd-shape">
+            <button class="calc-chip active" data-val="round" onclick="selectChip(this,'nd-shape');updateNDCalc()">Round</button>
+            <button class="calc-chip" data-val="princess" onclick="selectChip(this,'nd-shape');updateNDCalc()">Princess</button>
+            <button class="calc-chip" data-val="oval" onclick="selectChip(this,'nd-shape');updateNDCalc()">Oval</button>
+            <button class="calc-chip" data-val="emerald" onclick="selectChip(this,'nd-shape');updateNDCalc()">Emerald</button>
+            <button class="calc-chip" data-val="pear" onclick="selectChip(this,'nd-shape');updateNDCalc()">Pear</button>
+            <button class="calc-chip" data-val="cushion" onclick="selectChip(this,'nd-shape');updateNDCalc()">Cushion</button>
+            <button class="calc-chip" data-val="marquise" onclick="selectChip(this,'nd-shape');updateNDCalc()">Marquise</button>
+            <button class="calc-chip" data-val="radiant" onclick="selectChip(this,'nd-shape');updateNDCalc()">Radiant</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Colour Grade</label>
+          <div class="calc-chip-group" id="nd-color">
+            <button class="calc-chip active" data-val="D" onclick="selectChip(this,'nd-color');updateNDCalc()">D</button>
+            <button class="calc-chip" data-val="E" onclick="selectChip(this,'nd-color');updateNDCalc()">E</button>
+            <button class="calc-chip" data-val="F" onclick="selectChip(this,'nd-color');updateNDCalc()">F</button>
+            <button class="calc-chip" data-val="G" onclick="selectChip(this,'nd-color');updateNDCalc()">G</button>
+            <button class="calc-chip" data-val="H" onclick="selectChip(this,'nd-color');updateNDCalc()">H</button>
+            <button class="calc-chip" data-val="I" onclick="selectChip(this,'nd-color');updateNDCalc()">I</button>
+            <button class="calc-chip" data-val="J" onclick="selectChip(this,'nd-color');updateNDCalc()">J</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Clarity Grade</label>
+          <div class="calc-chip-group" id="nd-clarity">
+            <button class="calc-chip active" data-val="FL" onclick="selectChip(this,'nd-clarity');updateNDCalc()">FL</button>
+            <button class="calc-chip" data-val="IF" onclick="selectChip(this,'nd-clarity');updateNDCalc()">IF</button>
+            <button class="calc-chip" data-val="VVS1" onclick="selectChip(this,'nd-clarity');updateNDCalc()">VVS1</button>
+            <button class="calc-chip" data-val="VVS2" onclick="selectChip(this,'nd-clarity');updateNDCalc()">VVS2</button>
+            <button class="calc-chip" data-val="VS1" onclick="selectChip(this,'nd-clarity');updateNDCalc()">VS1</button>
+            <button class="calc-chip" data-val="VS2" onclick="selectChip(this,'nd-clarity');updateNDCalc()">VS2</button>
+            <button class="calc-chip" data-val="SI1" onclick="selectChip(this,'nd-clarity');updateNDCalc()">SI1</button>
+            <button class="calc-chip" data-val="SI2" onclick="selectChip(this,'nd-clarity');updateNDCalc()">SI2</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Cut Grade</label>
+          <div class="calc-chip-group" id="nd-cut">
+            <button class="calc-chip active" data-val="Excellent" onclick="selectChip(this,'nd-cut');updateNDCalc()">Excellent</button>
+            <button class="calc-chip" data-val="Very Good" onclick="selectChip(this,'nd-cut');updateNDCalc()">Very Good</button>
+            <button class="calc-chip" data-val="Good" onclick="selectChip(this,'nd-cut');updateNDCalc()">Good</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Currency</label>
+          <div class="calc-chip-group" id="nd-currency">
+            <button class="calc-chip active" data-val="USD" onclick="selectChip(this,'nd-currency');updateNDCalc()">USD $</button>
+            <button class="calc-chip" data-val="INR" onclick="selectChip(this,'nd-currency');updateNDCalc()">INR ₹</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="calc-result-col">
+
+        <!-- 3D Stone Viewer Box -->
+        <div class="stone-viewer-box" id="nd-viewer-box">
+          <div class="stone-viewer-label">◆ Live 3D Preview</div>
+          <canvas id="cv-nd-stone" class="stone-viewer-canvas"></canvas>
+          <div class="stone-viewer-hint">Drag to rotate</div>
+        </div>
+
+        <div class="calc-result-card" id="nd-result-card">
+          <div class="calc-result-label">Estimated Price Range</div>
+          <div class="calc-result-stone" id="nd-stone-desc">Round · 1.00 ct · D / FL · Excellent</div>
+          <div class="calc-result-price" id="nd-price">$7,500 – $9,200</div>
+          <div class="calc-result-note">Per carat basis · Indicative only · Rapaport-aligned</div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-breakdown" id="nd-breakdown">
+            <div class="calc-breakdown-row"><span>Base Price/ct</span><span id="nd-base-pct">$7,500</span></div>
+            <div class="calc-breakdown-row"><span>Weight (ct)</span><span id="nd-weight-show">1.00 ct</span></div>
+            <div class="calc-breakdown-row calc-breakdown-total"><span>Est. Total Range</span><span id="nd-total-range">$7,500 – $9,200</span></div>
+          </div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-disclaimer">
+            ◈ Prices are estimates based on Rapaport price sheet benchmarks and current market conditions. Actual price depends on fluorescence, symmetry, polish, and individual stone characteristics. Contact us for an exact quote.
+          </div>
+          <button class="btn-gold calc-inquire-btn" onclick="inquireCalcWhatsApp('natural')">Get Exact Quote on WhatsApp →</button>
+        </div>
+
+        <!-- 4C Guide -->
+        <div class="calc-guide-card">
+          <div class="calc-guide-title">◆ The 4C's Guide</div>
+          <div class="calc-guide-item"><strong>Cut</strong> — Most important factor. Excellent cut maximises brilliance.</div>
+          <div class="calc-guide-item"><strong>Colour</strong> — D is colourless (rarest). G–H offers great value.</div>
+          <div class="calc-guide-item"><strong>Clarity</strong> — FL is flawless. VS1/VS2 are eye-clean with better value.</div>
+          <div class="calc-guide-item"><strong>Carat</strong> — Weight. Exponential price jumps at 1ct, 2ct, 3ct milestones.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LAB GROWN DIAMOND CALCULATOR ===== -->
+  <div class="calc-panel" id="calc-lab">
+    <div class="calc-grid">
+      <div class="calc-form-col">
+        <div class="calc-section-title">Lab Grown Diamond</div>
+
+        <div class="calc-field">
+          <label class="calc-label">Carat Weight</label>
+          <div class="calc-slider-wrap">
+            <input type="range" class="calc-slider" id="lg-carat" min="0.25" max="10" step="0.05" value="1.00" oninput="updateLGCalc()">
+            <div class="calc-slider-val"><span id="lg-carat-val">1.00</span> ct</div>
+          </div>
+          <div class="calc-slider-labels"><span>0.25 ct</span><span>10 ct</span></div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Shape</label>
+          <div class="calc-chip-group" id="lg-shape">
+            <button class="calc-chip active" data-val="round" onclick="selectChip(this,'lg-shape');updateLGCalc()">Round</button>
+            <button class="calc-chip" data-val="princess" onclick="selectChip(this,'lg-shape');updateLGCalc()">Princess</button>
+            <button class="calc-chip" data-val="oval" onclick="selectChip(this,'lg-shape');updateLGCalc()">Oval</button>
+            <button class="calc-chip" data-val="emerald" onclick="selectChip(this,'lg-shape');updateLGCalc()">Emerald</button>
+            <button class="calc-chip" data-val="pear" onclick="selectChip(this,'lg-shape');updateLGCalc()">Pear</button>
+            <button class="calc-chip" data-val="cushion" onclick="selectChip(this,'lg-shape');updateLGCalc()">Cushion</button>
+            <button class="calc-chip" data-val="marquise" onclick="selectChip(this,'lg-shape');updateLGCalc()">Marquise</button>
+            <button class="calc-chip" data-val="radiant" onclick="selectChip(this,'lg-shape');updateLGCalc()">Radiant</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Colour Grade</label>
+          <div class="calc-chip-group" id="lg-color">
+            <button class="calc-chip active" data-val="D" onclick="selectChip(this,'lg-color');updateLGCalc()">D</button>
+            <button class="calc-chip" data-val="E" onclick="selectChip(this,'lg-color');updateLGCalc()">E</button>
+            <button class="calc-chip" data-val="F" onclick="selectChip(this,'lg-color');updateLGCalc()">F</button>
+            <button class="calc-chip" data-val="G" onclick="selectChip(this,'lg-color');updateLGCalc()">G</button>
+            <button class="calc-chip" data-val="H" onclick="selectChip(this,'lg-color');updateLGCalc()">H</button>
+            <button class="calc-chip" data-val="I" onclick="selectChip(this,'lg-color');updateLGCalc()">I</button>
+            <button class="calc-chip" data-val="J" onclick="selectChip(this,'lg-color');updateLGCalc()">J</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Clarity Grade</label>
+          <div class="calc-chip-group" id="lg-clarity">
+            <button class="calc-chip active" data-val="FL" onclick="selectChip(this,'lg-clarity');updateLGCalc()">FL</button>
+            <button class="calc-chip" data-val="IF" onclick="selectChip(this,'lg-clarity');updateLGCalc()">IF</button>
+            <button class="calc-chip" data-val="VVS1" onclick="selectChip(this,'lg-clarity');updateLGCalc()">VVS1</button>
+            <button class="calc-chip" data-val="VVS2" onclick="selectChip(this,'lg-clarity');updateLGCalc()">VVS2</button>
+            <button class="calc-chip" data-val="VS1" onclick="selectChip(this,'lg-clarity');updateLGCalc()">VS1</button>
+            <button class="calc-chip" data-val="VS2" onclick="selectChip(this,'lg-clarity');updateLGCalc()">VS2</button>
+            <button class="calc-chip" data-val="SI1" onclick="selectChip(this,'lg-clarity');updateLGCalc()">SI1</button>
+            <button class="calc-chip" data-val="SI2" onclick="selectChip(this,'lg-clarity');updateLGCalc()">SI2</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Growth Type</label>
+          <div class="calc-chip-group" id="lg-type">
+            <button class="calc-chip active" data-val="CVD" onclick="selectChip(this,'lg-type');updateLGCalc()">CVD</button>
+            <button class="calc-chip" data-val="HPHT" onclick="selectChip(this,'lg-type');updateLGCalc()">HPHT</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Currency</label>
+          <div class="calc-chip-group" id="lg-currency">
+            <button class="calc-chip active" data-val="USD" onclick="selectChip(this,'lg-currency');updateLGCalc()">USD $</button>
+            <button class="calc-chip" data-val="INR" onclick="selectChip(this,'lg-currency');updateLGCalc()">INR ₹</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result-col">
+
+        <!-- 3D Stone Viewer Box -->
+        <div class="stone-viewer-box" id="lg-viewer-box">
+          <div class="stone-viewer-label">◇ Live 3D Preview</div>
+          <canvas id="cv-lg-stone" class="stone-viewer-canvas"></canvas>
+          <div class="stone-viewer-hint">Drag to rotate</div>
+        </div>
+
+        <div class="calc-result-card" id="lg-result-card">
+          <div class="calc-result-label">Estimated Price Range</div>
+          <div class="calc-result-stone" id="lg-stone-desc">Round · 1.00 ct · D / FL · CVD</div>
+          <div class="calc-result-price" id="lg-price">$800 – $1,100</div>
+          <div class="calc-result-note">Per carat basis · IGI / GIA Certified</div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-breakdown" id="lg-breakdown">
+            <div class="calc-breakdown-row"><span>Base Price/ct</span><span id="lg-base-pct">$800</span></div>
+            <div class="calc-breakdown-row"><span>Weight (ct)</span><span id="lg-weight-show">1.00 ct</span></div>
+            <div class="calc-breakdown-row calc-breakdown-total"><span>Est. Total Range</span><span id="lg-total-range">$800 – $1,100</span></div>
+          </div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-disclaimer">
+            ◈ Lab grown prices have declined significantly in recent years. These are indicative estimates. Exact quotes depend on current market rates and certification. Contact us for live pricing.
+          </div>
+          <button class="btn-gold calc-inquire-btn" onclick="inquireCalcWhatsApp('lab')">Get Exact Quote on WhatsApp →</button>
+        </div>
+
+        <div class="calc-guide-card">
+          <div class="calc-guide-title">◇ Lab Grown vs Natural</div>
+          <div class="calc-guide-item"><strong>Identical</strong> — Same optical, chemical & physical properties.</div>
+          <div class="calc-guide-item"><strong>Price</strong> — Lab grown diamonds are typically 70–90% less than natural.</div>
+          <div class="calc-guide-item"><strong>CVD vs HPHT</strong> — CVD is more common. HPHT can produce type IIa stones.</div>
+          <div class="calc-guide-item"><strong>Certification</strong> — All our lab diamonds are IGI or GIA certified.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GEMSTONE CALCULATOR ===== -->
+  <div class="calc-panel" id="calc-gem">
+    <div class="calc-grid">
+      <div class="calc-form-col">
+        <div class="calc-section-title">Precious Gemstone</div>
+
+        <div class="calc-field">
+          <label class="calc-label">Gemstone Type</label>
+          <div class="calc-chip-group calc-chip-group--wide" id="gem-type">
+            <button class="calc-chip active" data-val="ruby" onclick="selectChip(this,'gem-type');updateGemCalc()">Ruby</button>
+            <button class="calc-chip" data-val="sapphire" onclick="selectChip(this,'gem-type');updateGemCalc()">Sapphire</button>
+            <button class="calc-chip" data-val="emerald" onclick="selectChip(this,'gem-type');updateGemCalc()">Emerald</button>
+            <button class="calc-chip" data-val="alexandrite" onclick="selectChip(this,'gem-type');updateGemCalc()">Alexandrite</button>
+            <button class="calc-chip" data-val="paraiba" onclick="selectChip(this,'gem-type');updateGemCalc()">Paraíba Tourmaline</button>
+            <button class="calc-chip" data-val="spinel" onclick="selectChip(this,'gem-type');updateGemCalc()">Spinel</button>
+            <button class="calc-chip" data-val="tanzanite" onclick="selectChip(this,'gem-type');updateGemCalc()">Tanzanite</button>
+            <button class="calc-chip" data-val="tsavorite" onclick="selectChip(this,'gem-type');updateGemCalc()">Tsavorite</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Carat Weight</label>
+          <div class="calc-slider-wrap">
+            <input type="range" class="calc-slider" id="gem-carat" min="0.10" max="10" step="0.05" value="1.00" oninput="updateGemCalc()">
+            <div class="calc-slider-val"><span id="gem-carat-val">1.00</span> ct</div>
+          </div>
+          <div class="calc-slider-labels"><span>0.10 ct</span><span>10 ct</span></div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Quality / Grade</label>
+          <div class="calc-chip-group" id="gem-quality">
+            <button class="calc-chip active" data-val="AAA" onclick="selectChip(this,'gem-quality');updateGemCalc()">AAA — Top</button>
+            <button class="calc-chip" data-val="AA" onclick="selectChip(this,'gem-quality');updateGemCalc()">AA — Fine</button>
+            <button class="calc-chip" data-val="A" onclick="selectChip(this,'gem-quality');updateGemCalc()">A — Good</button>
+            <button class="calc-chip" data-val="B" onclick="selectChip(this,'gem-quality');updateGemCalc()">B — Commercial</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Treatment</label>
+          <div class="calc-chip-group" id="gem-treatment">
+            <button class="calc-chip active" data-val="unheated" onclick="selectChip(this,'gem-treatment');updateGemCalc()">Unheated / Untreated</button>
+            <button class="calc-chip" data-val="heated" onclick="selectChip(this,'gem-treatment');updateGemCalc()">Heated / Minor</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Origin Premium</label>
+          <div class="calc-chip-group" id="gem-origin">
+            <button class="calc-chip active" data-val="premium" onclick="selectChip(this,'gem-origin');updateGemCalc()">Premium Origin</button>
+            <button class="calc-chip" data-val="standard" onclick="selectChip(this,'gem-origin');updateGemCalc()">Standard Origin</button>
+          </div>
+          <div class="calc-origin-note" id="gem-origin-note">e.g. Burma Ruby, Kashmir Sapphire, Colombian Emerald</div>
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Currency</label>
+          <div class="calc-chip-group" id="gem-currency">
+            <button class="calc-chip active" data-val="USD" onclick="selectChip(this,'gem-currency');updateGemCalc()">USD $</button>
+            <button class="calc-chip" data-val="INR" onclick="selectChip(this,'gem-currency');updateGemCalc()">INR ₹</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result-col">
+
+        <!-- 3D Stone Viewer Box -->
+        <div class="stone-viewer-box" id="gem-viewer-box">
+          <div class="stone-viewer-label">✦ Live 3D Preview</div>
+          <canvas id="cv-gem-stone" class="stone-viewer-canvas"></canvas>
+          <div class="stone-viewer-hint">Drag to rotate</div>
+        </div>
+
+        <div class="calc-result-card" id="gem-result-card">
+          <div class="calc-result-label">Estimated Price Range</div>
+          <div class="calc-result-stone" id="gem-stone-desc">Ruby · 1.00 ct · AAA · Unheated · Premium Origin</div>
+          <div class="calc-result-price" id="gem-price">$8,000 – $14,000</div>
+          <div class="calc-result-note">Per carat basis · GRS / AGL / GIA Certified</div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-breakdown" id="gem-breakdown">
+            <div class="calc-breakdown-row"><span>Base Price/ct</span><span id="gem-base-pct">$8,000</span></div>
+            <div class="calc-breakdown-row"><span>Quality Multiplier</span><span id="gem-quality-mult">1.00×</span></div>
+            <div class="calc-breakdown-row"><span>Treatment Factor</span><span id="gem-treat-mult">1.00×</span></div>
+            <div class="calc-breakdown-row"><span>Origin Premium</span><span id="gem-origin-mult">1.00×</span></div>
+            <div class="calc-breakdown-row calc-breakdown-total"><span>Est. Total Range</span><span id="gem-total-range">$8,000 – $14,000</span></div>
+          </div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-disclaimer">
+            ◈ Gemstone pricing is highly variable based on origin, colour saturation, clarity, and treatment history. Certified stones command significant premiums. This is a broad indicative range only.
+          </div>
+          <button class="btn-gold calc-inquire-btn" onclick="inquireCalcWhatsApp('gem')">Get Exact Quote on WhatsApp →</button>
+        </div>
+
+        <div class="calc-guide-card">
+          <div class="calc-guide-title">✦ Gemstone Premium Factors</div>
+          <div class="calc-guide-item"><strong>Origin</strong> — Burma Ruby, Kashmir Sapphire & Colombian Emerald command 2–5× premiums.</div>
+          <div class="calc-guide-item"><strong>Unheated</strong> — No-heat stones are 1.5–3× more valuable than heated equivalents.</div>
+          <div class="calc-guide-item"><strong>Colour</strong> — Vivid, saturated hue is the #1 value driver in coloured stones.</div>
+          <div class="calc-guide-item"><strong>Certification</strong> — GRS, GIA, AGL or Gübelin reports are essential for top-tier stones.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer Banner -->
+  <div class="calc-disclaimer-banner">
+    <div class="calc-disclaimer-inner">
+      <span class="calc-disclaimer-icon">◈</span>
+      <span>All prices are indicative estimates based on current market benchmarks. Actual prices vary with specific stone characteristics, certification, and market conditions. Contact our team for a precise, personalised quote.</span>
+      <a class="calc-disclaimer-cta" href="https://wa.me/918800806032?text=Hi%2C%20I%27d%20like%20a%20price%20quote%20from%20Anthem%20Jewels" target="_blank" rel="noopener">WhatsApp Us →</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Anthem <span>Jewels</span></div>
+        <p class="footer-desc">Natural &amp; lab grown diamonds. Burma rubies, Kashmir sapphires, Colombian emeralds. GIA / IGI / GRS certified. Est. 2010 · Surat, India.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home');return false;">Home</a></li>
+          <li><a onclick="showPage('gallery');return false;">Diamonds</a></li>
+          <li><a onclick="showPage('gemstones');return false;">Gemstones</a></li>
+          <li><a onclick="showPage('calculator');return false;">Calculator</a></li>
+          <li><a onclick="showPage('about');return false;">About Us</a></li>
+          <li><a onclick="showPage('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact Us</div>
+        <ul class="footer-links">
+          <li><a href="tel:+918800806032">📞 +91 88008 06032</a></li>
+          <li><a href="mailto:anthem@jewelsdiamond.com">✉ anthem@jewelsdiamond.com</a></li>
+          <li><a href="https://www.google.com/maps/place/Surat+Diamond+Bourse" target="_blank" rel="noopener">📍 Surat Diamond Bourse, Gujarat</a></li>
+          <li><a href="https://wa.me/918800806032" target="_blank" rel="noopener">💬 WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Anthem Jewels · Surat, Gujarat, India · All rights reserved.</div>
+      <div class="footer-socials">
+        <a class="social-btn" href="https://instagram.com/anthem_jewels_" target="_blank" rel="noopener" title="Instagram">📷</a>
+        <a class="social-btn" href="https://wa.me/918800806032" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+        <a class="social-btn" href="mailto:anthem@jewelsdiamond.com" title="Email">✉</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- end #calculator -->
 
 <!-- WhatsApp Float -->
 <a class="whatsapp-float" href="https://wa.me/918800806032" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="WhatsApp">
